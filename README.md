@@ -6,12 +6,7 @@ BOS Starter Code has been designed
 - To allow you to focus more on the custom logic for the application
 - To better handle the data that is shared between BOS and your custom database
 
-<br />
-<br />
-
 ## Getting Started
-
--------------------------------
 
 If you are new to the world of .NET Core, start by learning the basics from [Microsoft’s documentation site](https://docs.microsoft.com/en-us/aspnet/core/?view=aspnetcore-3.1) and build your first application following the [documentation here.](https://docs.microsoft.com/en-us/aspnet/core/tutorials/first-mvc-app/start-mvc?view=aspnetcore-3.1&tabs=visual-studio)
 
@@ -19,7 +14,6 @@ If you are new to the world of .NET Core, start by learning the basics from [Mic
 
 The StarterCode is a .NET Core application that uses the MVC pattern.  Before you start coding be sure to have the following appropriate tools installed 
 
-<br />
 
 #### Development
 
@@ -28,7 +22,6 @@ The StarterCode is a .NET Core application that uses the MVC pattern.  Before yo
   - [Visual Studio](https://visualstudio.microsoft.com/downloads/)_(doesn't matter the edition)_
 - SDK: [.NET Core 3.1](https://dotnet.microsoft.com/download/dotnet-core/3.1)(_at a minimum_)
 
-<br />
 
 #### Database
 
@@ -36,7 +29,6 @@ The StarterCode is a .NET Core application that uses the MVC pattern.  Before yo
 - If you’ve chosen MySQL, then download the software and [MySQL Workbench](https://dev.mysql.com/downloads/workbench/) as the development tool
 - Optional -  [HeidiSQL](https://dev.mysql.com/downloads/workbench/) works with both PostgreSQL and MySQL
 
-<br />
 
 ### WORKING WITH GITHUB
 
@@ -46,7 +38,6 @@ If you already know how to work with GitHub, you can skip this section.
 
 To work with Git, you can either choose to write your commands on the command prompt (Windows), Terminal (Mac), or Gitbash. You can download GitBash from [here](https://git-scm.com/downloads).
 
-<br />
 
 #### Cloning your StaterCode
 
@@ -66,8 +57,6 @@ The link will take you to GitHub, where when you click on the green Code button,
 
 Note: If you’ve not already logged in, it might ask you to enter your GitHub credentials.
 
-<br />
-
 #### Pulling the latest
 
 -------------------------------
@@ -85,7 +74,6 @@ The link will take you to GitHub, where when you click on the green Code button,
  git pull
  ```
 
-<br />
 
 #### Creating feature branch
 
@@ -103,7 +91,6 @@ git checkout develop
 git checkout CustomCode
  ```
 
-<br />
 
 #### Pushing/ Committing your code
 
@@ -129,7 +116,6 @@ git push --set-upstream original _{YourFeatureBranchName}_
 git push --set-upstream origin CustomCode
  ```
 
-<br />
 
 #### Merging your code to the `develop` branch
 
@@ -152,8 +138,6 @@ git push
 
 To test if your code has been deployed successfully, visit your application hosted on the development environment.
 
-<br />
-<br />
 
 ## Leveraging BOS
 
@@ -176,7 +160,6 @@ A few of the features and functions that the StarterCode already does for you ar
 
 To use BOS APIs you’d have to provide the **ClientID and ClientSecret** keys. You can access these in your BOS Console’s Application Dashboard
 
-<br />
 
 ### Prewired BOS APIs
 
@@ -196,7 +179,6 @@ In the source code you’ll find these APIs being used across different controll
 - Information Architecture - AuthController.cs, PermissionsController.cs
 - Email - UsersController.cs, AuthController.cs
 
-<br />
 
 ### Configuring Application IA
 
@@ -210,8 +192,6 @@ The Information Architecture in BOS is one of the solid solutions that BOS provi
 
 BOS readily provides IA for the Super Admin and User roles. However to configure IA for your custom modules (features) in your application, you’ll have to first set this up in the BOS Console. You can create as many Modules (features) and their Operations (actions) in the BOS Console. Speaking MVC language a Module equates to a **Controller** and Operation equates to **Action**.  To do this, navigate to the **Modules and Operations** section under **Application Management**.
 
-<br />
-<br />
 
 ## Setting-up Custom Database
 
@@ -234,8 +214,6 @@ Follow the following steps to set up and use the database locally
 
 To get information on how you can use Entity Framework Migration in an MVC application, go through the [documentation](https://docs.microsoft.com/en-us/aspnet/core/data/ef-rp/intro?tabs=visual-studio&view=aspnetcore-3.1)
 
-<br />
-<br />
 
 ## Adding Custom Code
 
@@ -249,16 +227,12 @@ The module, however, appears on the left navigation of the application when the 
 
 To fix this, we will have to add a new **Controller** to my source code with the page path exactly as mentioned in the BOS Console. So, in this example, I add a new Controller with the name “TicketsController” and also create a default **View** and **Model** to go with it.
 
-<br />
-<br />
 
 ## Check-ins and Deployment
 
 -------------------------------
 If you’ve enabled CI/ CD in BOS Console while setting up your application, then everytime there is a code check-in or merge on the selected branch (default is set to `develop`) the code is deployed to the development branch. You will be notified about this via email and also you can look at the build logs on your **Application Dashboard** in BOS Console
 
-<br />
-<br />
 
 ## Check-ins and Deployment
 
