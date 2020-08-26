@@ -1,39 +1,266 @@
-**BOS Starter Code for ASP.NET Core 3.1**
+# BOS Starter Code for ASP.NET Core 3.1
 
-**Purpose of this Repository**
+BOS Starter Code has been designed
 
-Starter Code helps the developer to jump start the development effort and directly focus on the business logic for the application.
+- To help engineers easily familiarize themselves with BOS offerings
+- To allow you to focus more on the custom logic for the application
+- To better handle the data that is shared between BOS and your custom database
 
-**Features**
+<br />
+<br />
 
-1. ASP.NET Core 3.1
-2. Razor Pages
-3. Authentication with BOS Identity
-4. Profile Picture
-5. Advanced User and Role Management Module
-6. Information Architecture
-7. Permission Management
+## Getting Started
 
-**Prerequisites**
+-------------------------------
 
-1. Visual Studio 2019 Community and above
-2. .NET Core 3.1 SDK and above
+If you are new to the world of .NET Core, start by learning the basics from [Microsoft’s documentation site](https://docs.microsoft.com/en-us/aspnet/core/?view=aspnetcore-3.1) and build your first application following the [documentation here.](https://docs.microsoft.com/en-us/aspnet/core/tutorials/first-mvc-app/start-mvc?view=aspnetcore-3.1&tabs=visual-studio)
 
-**Getting Started**
+### PREREQUISITES
 
-1. Create a Custom Module and corresponding Operations for your application in BOS Console. [Learn more.](https://developers.bosframework.com/ApplicationManagement/InformationArchitecture/ModulesAndOperations)
+The StarterCode is a .NET Core application that uses the MVC pattern.  Before you start coding be sure to have the following appropriate tools installed 
 
-- In BOS Console, open your application dashboard, click on &quot; **Modules &amp; Operations**&quot; under Application Management.
-- Create a custom module with the module name, module/page path and the operations required. Module Code and Operation codes will be auto-generated and available on the module card to copy them.
-- Roles &amp; Permissions - The newly created custom module will be automatically associated with the Super admin role. You can also create your application roles and associate this custom module to those roles.
-- These roles are then assigned to Users completing the Permissions and accessibility of the specific Module.
-- The custom module will appear as a link in the navigation of the hosted application when logged-in with the users to whom this module is associated.
+<br />
 
-2. Directly get started with creation of the Controller and View for the module in Starter Code. [Learn more.](https://developers.bosframework.com/StarterCode/Web/DotNetCore)
+#### Development
 
-- When a new custom Module is created it will have a generated Code and your defined Page Path. Copy this Code and Page Path then use in your application code as described below.
-- In your Starter Code application find the NavigationMenu.cshtml file. Place the code snippet from[the samples](https://developers.bosframework.com/StarterCode/Web/DotNetCore) into the _foreach_ loop starting at line #67. Be sure to use your generated Code here.
-- In your application code you will need to create a Controller named following your Module name with corresponding methods/functions following the naming convention used in creating your Operations. See the snippet from [the samples](https://developers.bosframework.com/StarterCode/Web/DotNetCore) for an example of a Controller with a single Index action.
-- From the Application Dashboard you will need to copy the Operations Codes. Simply click the Clipboard icon next to the truncated Operations list to copy the list to your clipboard.
-- Paste this output into a text document somewhere for your reference for the items below.
-- To correspond to this Index action you will need to add a View under /Views/Schedules called Index.cshtml. In this view you will use the proper Operations Code to determine access to the page as well as the actions that a User can take within this view. See the snippet from [the samples provided](https://developers.bosframework.com/StarterCode/Web/DotNetCore) for the implementation of the Operations Code.
+- IDE
+  - [Visual Studio Code](https://code.visualstudio.com/download)
+  - [Visual Studio](https://visualstudio.microsoft.com/downloads/)_(doesn't matter the edition)_
+- SDK: [.NET Core 3.1](https://dotnet.microsoft.com/download/dotnet-core/3.1)(_at a minimum_)
+
+<br />
+
+#### Database
+
+- If you’ve chosen PostgreSQL in the BOS Console while setting up your application then, we’d recommend you [download it](https://www.postgresql.org/download/), and [pgAdmin](https://www.pgadmin.org/) as the development platform
+- If you’ve chosen MySQL, then download the software and [MySQL Workbench](https://dev.mysql.com/downloads/workbench/) as the development tool
+- Optional -  [HeidiSQL](https://dev.mysql.com/downloads/workbench/) works with both PostgreSQL and MySQL
+
+<br />
+
+### WORKING WITH GITHUB
+
+Based on your selection in the BOS Console, BOS will either create the repo for you in your private GitHub account or in BOS’. Regardless, there are 2 branches where the code is checked-in. One is the `master` and the other is the branch name of your choice. The default name of the second branch is `develop`.
+
+If you already know how to work with GitHub, you can skip this section.
+
+To work with Git, you can either choose to write your commands on the command prompt (Windows), Terminal (Mac), or Gitbash. You can download GitBash from [here](https://git-scm.com/downloads).
+
+<br />
+
+#### Cloning your StaterCode
+
+-------------------------------
+
+To start cloning your source code for the StarterCode, you first need to have access to the GitHub repo URL. On BOS Console’s Application Dashboard, look at the **Application Access** tile. Here, you will find the link to the Source Code.
+
+The link will take you to GitHub, where when you click on the green Code button, you get your repo URL. Copy this to Clone later.
+
+- Open either command prompt or GitBash
+- Change the directory to your desired location
+- Clone your source code through the command **git clone _{git URL}_**
+
+```bash
+ git clone https://github.com/JamesSmith/James202008242.git
+ ```
+
+Note: If you’ve not already logged in, it might ask you to enter your GitHub credentials.
+
+<br />
+
+#### Pulling the latest
+
+-------------------------------
+
+After cloning the source code to your local computer, you’ll notice that the default branch is set to `master`. The latest version of the source code is already cloned, but to be absolutely sure, we could do this explicitly. _This step is optional._
+
+
+The link will take you to GitHub, where when you click on the green Code button, you get your repo URL. Copy this to Clone later.
+
+- To pull the latest, do the following
+- Navigate to the root folder
+- Then execute the command **git pull**
+
+```bash
+ git pull
+ ```
+
+<br />
+
+#### Creating feature branch
+
+-------------------------------
+
+One of the best practices to follow is to create unique feature branches throughout the development cycle. Here we’ll show you how to create a feature branch from the already created `develop` branch.
+
+Execute the following commands
+
+- git checkout develop
+- git checkout -b _{FeatureName}_
+
+```bash
+git checkout develop
+git checkout CustomCode
+ ```
+
+<br />
+
+#### Pushing/ Committing your code
+
+-------------------------------
+
+Once you’ve done all your changes on your feature branch you could either use VisualStudio to do this or continue using the command prompt. Here is the code snippet to push your code to the feature branch
+
+Execute the following commands
+
+- git commit -am _"{Your message for the commit}"_
+- git push
+
+```bash
+git commit -am "Added a new message"
+git push
+ ```
+
+You might encounter an error with the upstream code. To fix this execute the following command
+
+git push --set-upstream original _{YourFeatureBranchName}_
+
+```bash
+git push --set-upstream origin CustomCode
+ ```
+
+<br />
+
+#### Merging your code to the `develop` branch
+
+-------------------------------
+
+Once you feel comfortable with the code in your feature branch and when you think it is deploy-ready, merge your code with the `develop` branch. If you’ve set CI/CD on the BOS Console on your develop (or custom name) branch, then as soon as you merge your code successfully, the CI/ CD process kicks in and the code is deployed to your dev environment. Follow the steps below to merge your code from the feature branch
+
+- git checkout develop
+- git merge _{FeatureBranch}_
+Example: git merge origin CustomCode
+- git checkout develop
+- git push
+
+```bash
+git checkout develop
+git merge origin CustomCode
+git checkout develop
+git push
+ ```
+
+To test if your code has been deployed successfully, visit your application hosted on the development environment.
+
+<br />
+<br />
+
+## Leveraging BOS
+
+-------------------------------
+
+BOS StarterCode is already wired with a few of the foundational BOS APIs. Together with this, if you’ve enabled the CI/ CD in the BOS Console, then with every merge to your ‘develop’ (or equivalent) branch the code is deployed to the development server.
+
+A few of the features and functions that the StarterCode already does for you are
+
+- Registration
+- Login
+- ForgotPassword
+- Authorization on login to display only the modules/ features the role is allowed to
+- Scoped data per role
+- Profile
+- For Super Admin (and based on roles)
+  - User Management screens
+  - Role Management screens
+  - Permissions Management screens
+
+To use BOS APIs you’d have to provide the **ClientID and ClientSecret** keys. You can access these in your BOS Console’s Application Dashboard
+
+<br />
+
+### Prewired BOS APIs
+
+The following are the list of BOS foundational APIs that are already integrated into the StarterCode
+
+- User Management and Demographics
+- Authentication and Role Management
+- Authorization and Information Architecture
+- Email
+
+In the source code you’ll find these APIs being used across different controllers. A few of the examples are
+
+- User Management and Demographics - UsersController.cs
+- Authentication - AuthController.cs
+- Role Management - RolesController.cs
+- Authorization - AuthController.cs
+- Information Architecture - AuthController.cs, PermissionsController.cs
+- Email - UsersController.cs, AuthController.cs
+
+<br />
+
+### Configuring Application IA
+
+The Information Architecture in BOS is one of the solid solutions that BOS provides. Information Architecture can be configured in one of two ways.
+
+1. Using BOS Console
+    - To set permissions up, navigate to **Application Management** → **Roles and Permissions**
+    - Select a **Role** and hit Edit
+2. Through the StarterCode
+    - Navigate to **Roles** from the left navigation pane and select the **Manage Permissions** operation
+
+BOS readily provides IA for the Super Admin and User roles. However to configure IA for your custom modules (features) in your application, you’ll have to first set this up in the BOS Console. You can create as many Modules (features) and their Operations (actions) in the BOS Console. Speaking MVC language a Module equates to a **Controller** and Operation equates to **Action**.  To do this, navigate to the **Modules and Operations** section under **Application Management**.
+
+<br />
+<br />
+
+## Setting-up Custom Database
+
+-------------------------------
+In the **appsettings.development.json**, the StarterCode provides the connection string to the development database.
+
+Follow the following steps to set up and use the database locally
+
+- Open the database development tool of your choice.
+- Create a new database
+- Copy the connection string into clipboard
+- In the Source Code, add a new appsetings.Local.json file
+- Add the following node in this file
+
+```json
+"ConnectionStrings": {
+    "StarterCode-PostgresDB": "Server=localhost;User Id=postgres;Password=password;Database=databasename;SearchPath=public"
+  }
+```
+
+To get information on how you can use Entity Framework Migration in an MVC application, go through the [documentation](https://docs.microsoft.com/en-us/aspnet/core/data/ef-rp/intro?tabs=visual-studio&view=aspnetcore-3.1)
+
+<br />
+<br />
+
+## Adding Custom Code
+
+-------------------------------
+
+One of the few misconceptions about BOS is that  when you add the Module and its Operations in the BOS Console, it creates the respective controllers in the Starter Code. Well, the BOS team definitely has this in the roadmap, but for right now, the onus is you to manually add them.
+
+The name of the Custom Module is **Tickets** and the Path is **/tickets**. The Super Admin, by default, has access to all the custom modules created, unless explicitly set otherwise.
+
+The module, however, appears on the left navigation of the application when the Super Admin logs in. This is thanks to the BOS IA API. But, when the Super Admin navigates to the “Tickets” module the application navigates to the error page. This is because the StarterCode is yet to be configured to handle this.
+
+To fix this, we will have to add a new **Controller** to my source code with the page path exactly as mentioned in the BOS Console. So, in this example, I add a new Controller with the name “TicketsController” and also create a default **View** and **Model** to go with it.
+
+<br />
+<br />
+
+## Check-ins and Deployment
+
+-------------------------------
+If you’ve enabled CI/ CD in BOS Console while setting up your application, then everytime there is a code check-in or merge on the selected branch (default is set to `develop`) the code is deployed to the development branch. You will be notified about this via email and also you can look at the build logs on your **Application Dashboard** in BOS Console
+
+<br />
+<br />
+
+## Check-ins and Deployment
+
+-------------------------------
+To know more about the Business APIs that BOS provides, visit this [website](https://developers.bosframework.com/)
