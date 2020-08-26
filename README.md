@@ -141,8 +141,6 @@ To test if your code has been deployed successfully, visit your application host
 
 ## Leveraging BOS
 
--------------------------------
-
 BOS StarterCode is already wired with a few of the foundational BOS APIs. Together with this, if you’ve enabled the CI/ CD in the BOS Console, then with every merge to your ‘develop’ (or equivalent) branch the code is deployed to the development server.
 
 A few of the features and functions that the StarterCode already does for you are
@@ -195,7 +193,6 @@ BOS readily provides IA for the Super Admin and User roles. However to configure
 
 ## Setting-up Custom Database
 
--------------------------------
 In the **appsettings.development.json**, the StarterCode provides the connection string to the development database.
 
 Follow the following steps to set up and use the database locally
@@ -217,7 +214,6 @@ To get information on how you can use Entity Framework Migration in an MVC appli
 
 ## Adding Custom Code
 
--------------------------------
 
 One of the few misconceptions about BOS is that  when you add the Module and its Operations in the BOS Console, it creates the respective controllers in the Starter Code. Well, the BOS team definitely has this in the roadmap, but for right now, the onus is you to manually add them.
 
@@ -230,11 +226,9 @@ To fix this, we will have to add a new **Controller** to my source code with the
 
 ## Check-ins and Deployment
 
--------------------------------
 If you’ve enabled CI/ CD in BOS Console while setting up your application, then everytime there is a code check-in or merge on the selected branch (default is set to `develop`) the code is deployed to the development branch. You will be notified about this via email and also you can look at the build logs on your **Application Dashboard** in BOS Console
 
 
 ## Check-ins and Deployment
 
--------------------------------
 To know more about the Business APIs that BOS provides, visit this [website](https://developers.bosframework.com/)
