@@ -151,7 +151,7 @@ A few of the features and functions that the StarterCode already does for you ar
 - Authorization on login to display only the modules/ features the role is allowed to
 - Scoped data per role
 - Profile
-- For Super Admin (and based on roles)
+- For Super Admin _(and based on roles-permissions)_
   - User Management screens
   - Role Management screens
   - Permissions Management screens
@@ -229,6 +229,6 @@ To fix this, we will have to add a new **Controller** to my source code with the
 If you’ve enabled CI/ CD in BOS Console while setting up your application, then everytime there is a code check-in or merge on the selected branch (default is set to `develop`) the code is deployed to the development branch. You will be notified about this via email and also you can look at the build logs on your **Application Dashboard** in BOS Console
 
 
-## Check-ins and Deployment
+## Documentation
 
 To know more about the Business APIs that BOS provides, visit this [website](https://developers.bosframework.com/)
