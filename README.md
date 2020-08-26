@@ -217,12 +217,94 @@ To get information on how you can use Entity Framework Migration in an MVC appli
 
 One of the few misconceptions about BOS is that  when you add the Module and its Operations in the BOS Console, it creates the respective controllers in the Starter Code. Well, the BOS team definitely has this in the roadmap, but for right now, the onus is you to manually add them.
 
-The name of the Custom Module is **Tickets** and the Path is **/tickets**. The Super Admin, by default, has access to all the custom modules created, unless explicitly set otherwise.
+The name of the Custom Module that we have the custom code here for is **Tickets** and the Path is **/tickets**. The Super Admin, by default, has access to all the custom modules created, unless explicitly set otherwise.
 
 The module, however, appears on the left navigation of the application when the Super Admin logs in. This is thanks to the BOS IA API. But, when the Super Admin navigates to the “Tickets” module the application navigates to the error page. This is because the StarterCode is yet to be configured to handle this.
 
 To fix this, we will have to add a new **Controller** to my source code with the page path exactly as mentioned in the BOS Console. So, in this example, I add a new Controller with the name “TicketsController” and also create a default **View** and **Model** to go with it.
 
+### Controller
+
+```cs
+ public class TicketsController : Controller
+    {
+        public IActionResult Index()
+        {
+            List<Ticket> tickets = new List<Ticket>();
+            for (int i = 0; i < 2; i++)
+            {
+                Ticket ticket = new Ticket();
+                ticket.Id = Guid.NewGuid();
+                ticket.Number = i;
+                ticket.Title = "Ticket " + i;
+
+                tickets.Add(ticket);
+            }
+            return View(tickets);
+        }
+    }
+```
+
+### Model
+
+```cs
+ public class Ticket
+    {
+        public Guid Id { get; set; }
+
+        public int Number { get; set; }
+
+        public string Title { get; set; }
+
+    }
+```
+
+### View
+
+```html
+ @model IEnumerable<BOS.StarterCode.Models.BOSModels.Ticket>
+    <p>
+        <a asp-action="Create">Create New</a>
+    </p>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.Id)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Number)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Title)
+                </th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Id)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Number)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Title)
+                    </td>
+                    <td>
+                        @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
+                        @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
+                        @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+
+```
 
 ## Check-ins and Deployment
 
