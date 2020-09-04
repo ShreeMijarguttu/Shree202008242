@@ -12,7 +12,7 @@ If you are new to the world of .NET Core, start by learning the basics from [Mic
 
 ### PREREQUISITES
 
-The StarterCode is a .NET Core application that uses the MVC pattern.  Before you start coding be sure to have the following appropriate tools installed
+The Starter Code is a .NET Core application that uses the MVC pattern.  Before you start coding be sure to have the following appropriate tools installed
 
 #### Development
 
@@ -39,7 +39,7 @@ To work with Git, you can either choose to write your commands on the command pr
 
 -------------------------------
 
-To start cloning your source code for the StarterCode, you first need to have access to the GitHub repo URL. On BOS Console’s Application Dashboard, look at the **Application Access** tile. Here, you will find the link to the Source Code.
+To start cloning your source code for the Starter Code, you first need to have access to the GitHub repo URL. On BOS Console’s Application Dashboard, look at the **Application Access** tile. Here, you will find the link to the Source Code.
 
 The link will take you to GitHub, where when you click on the green Code button, you get your repo URL. Copy this to Clone later.
 
@@ -132,9 +132,9 @@ To test if your code has been deployed successfully, visit your application host
 
 ## Leveraging BOS
 
-BOS StarterCode is already wired with a few of the foundational BOS APIs. Together with this, if you’ve enabled the CI/ CD in the BOS Console, then with every merge to your ‘develop’ (or equivalent) branch the code is deployed to the development server.
+BOS Starter Code is already wired with a few of the foundational BOS APIs. Together with this, if you’ve enabled the CI/ CD in the BOS Console, then with every merge to your ‘develop’ (or equivalent) branch the code is deployed to the development server.
 
-A few of the features and functions that the StarterCode already does for you are
+A few of the features and functions that the Starter Code already does for you are
 
 - Registration
 - Login
@@ -151,7 +151,7 @@ To use BOS APIs you’d have to provide the **ClientID and ClientSecret** keys. 
 
 ### Prewired BOS APIs
 
-The following are the list of BOS foundational APIs that are already integrated into the StarterCode
+The following are the list of BOS foundational APIs that are already integrated into the Starter Code
 
 - User Management and Demographics
 - Authentication and Role Management
@@ -174,14 +174,14 @@ The Information Architecture in BOS is one of the solid solutions that BOS provi
 1. Using BOS Console
     - To set permissions up, navigate to **Application Management** → **Roles and Permissions**
     - Select a **Role** and hit Edit
-2. Through the StarterCode
+2. Through the Starter Code
     - Navigate to **Roles** from the left navigation pane and select the **Manage Permissions** operation
 
 BOS readily provides IA for the Super Admin and User roles. However to configure IA for your custom modules (features) in your application, you’ll have to first set this up in the BOS Console. You can create as many Modules (features) and their Operations (actions) in the BOS Console. Speaking MVC language a Module equates to a **Controller** and Operation equates to **Action**.  To do this, navigate to the **Modules and Operations** section under **Application Management**.
 
 ## Setting-up Custom Database
 
-In the **appsettings.development.json**, the StarterCode provides the connection string to the development database.
+In the **appsettings.development.json**, the Starter Code provides the connection string to the development database.
 
 Follow the following steps to set up and use the database locally
 
@@ -205,7 +205,7 @@ One of the few misconceptions about BOS is that  when you add the Module and its
 
 The name of the Custom Module that we have the custom code here for is **Tickets** and the Path is **/tickets**. The Super Admin, by default, has access to all the custom modules created, unless explicitly set otherwise.
 
-The module, however, appears on the left navigation of the application when the Super Admin logs in. This is thanks to the BOS IA API. But, when the Super Admin navigates to the “Tickets” module the application navigates to the error page. This is because the StarterCode is yet to be configured to handle this.
+The module, however, appears on the left navigation of the application when the Super Admin logs in. This is thanks to the BOS IA API. But, when the Super Admin navigates to the “Tickets” module the application navigates to the error page. This is because the Starter Code is yet to be configured to handle this.
 
 To fix this, we will have to add a new **Controller** to my source code with the page path exactly as mentioned in the BOS Console. So, in this example, I add a new Controller with the name “TicketsController” and also create a default **View** and **Model** to go with it.
 
@@ -294,7 +294,7 @@ To fix this, we will have to add a new **Controller** to my source code with the
 
 ## Working with Google Analytics and Hotjar
 
-BOS StarterCode comes integrated with Google Analytics and Hotjar already, making it extremely simple for engineers to start analysing application/ users behavior. All that you will have to do is include the following code snippet in the appsettings._{environment}_.json file. This allows you to have unique keys for each environment. Look for the following nodes in the appsettings file.
+BOS Starter Code comes integrated with Google Analytics and Hotjar already, making it extremely simple for engineers to start analysing application/ users behavior. All that you will have to do is include the following code snippet in the appsettings._{environment}_.json file. This allows you to have unique keys for each environment. Look for the following nodes in the appsettings file.
 
 ```json
  "Hotjar": "<!-- Hotjar Tracking Code -->\r\n<script>\r\n    (function(h,o,t,j,a,r){\r\n        h.hj=h.hj||function(){(h.hj.q=h.hj.q||[]).push(arguments)};\r\n        h._hjSettings={hjid:XXXXXX,hjsv:6};\r\n        a=o.getElementsByTagName('head')[0];\r\n        r=o.createElement('script');r.async=1;\r\n        r.src=t+h._hjSettings.hjid+j+h._hjSettings.hjsv;\r\n        a.appendChild(r);\r\n    })(window,document,'https://static.hotjar.com/c/hotjar-','.js?sv=');\r\n</script>",
