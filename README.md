@@ -41,7 +41,11 @@ To work with Git, you can either choose to write your commands on the command pr
 
 To start cloning your source code for the Starter Code, you first need to have access to the GitHub repo URL. On BOS Console’s Application Dashboard, look at the **Application Access** tile. Here, you will find the link to the Source Code.
 
+![](https://bos-startercode-uploads.s3.amazonaws.com/01-ApplicationDatabase.png)
+
 The link will take you to GitHub, where when you click on the green Code button, you get your repo URL. Copy this to Clone later.
+
+![](https://bos-startercode-uploads.s3.amazonaws.com/02-GitClone.png)
 
 - Open either command prompt or GitBash
 - Change the directory to your desired location
@@ -52,6 +56,8 @@ The link will take you to GitHub, where when you click on the green Code button,
  ```
 
 Note: If you’ve not already logged in, it might ask you to enter your GitHub credentials.
+
+![](https://bos-startercode-uploads.s3.amazonaws.com/03-CommandPropmt-GitHub.png)
 
 #### Pulling the latest
 
@@ -149,6 +155,8 @@ A few of the features and functions that the Starter Code already does for you a
 
 To use BOS APIs you’d have to provide the **ClientID and ClientSecret** keys. You can access these in your BOS Console’s Application Dashboard
 
+![](https://bos-startercode-uploads.s3.amazonaws.com/04-APICredentials.png)
+
 ### Prewired BOS APIs
 
 The following are the list of BOS foundational APIs that are already integrated into the Starter Code
@@ -203,9 +211,15 @@ To get information on how you can use Entity Framework Migration in an MVC appli
 
 One of the few misconceptions about BOS is that  when you add the Module and its Operations in the BOS Console, it creates the respective controllers in the Starter Code. Well, the BOS team definitely has this in the roadmap, but for right now, the onus is you to manually add them.
 
+For example, here is a screenshot of the custom module that I have created for the application
+
+![](https://bos-startercode-uploads.s3.amazonaws.com/05-CustomModule.png)
+
 The name of the Custom Module that we have the custom code here for is **Tickets** and the Path is **/tickets**. The Super Admin, by default, has access to all the custom modules created, unless explicitly set otherwise.
 
 The module, however, appears on the left navigation of the application when the Super Admin logs in. This is thanks to the BOS IA API. But, when the Super Admin navigates to the “Tickets” module the application navigates to the error page. This is because the Starter Code is yet to be configured to handle this.
+
+![](https://bos-startercode-uploads.s3.amazonaws.com/06-CustomModuleInApp-Tickets.png)
 
 To fix this, we will have to add a new **Controller** to my source code with the page path exactly as mentioned in the BOS Console. So, in this example, I add a new Controller with the name “TicketsController” and also create a default **View** and **Model** to go with it.
 
