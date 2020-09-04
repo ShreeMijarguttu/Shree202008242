@@ -305,7 +305,7 @@ Note: Be sure to replace _XXXXXX_ with the appropriate keys.
 
 To know more on how you can create and access your app Keys follow these links along
 
-- [Google Analytics]("https://analytics.google.com/analytics/web/provision/#/provision/create")
+- [Google Analytics]("https://analytics.google.com")
 - [Hotjar](https://www.hotjar.com/)
 
 ## Check-ins and Deployment
