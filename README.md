@@ -294,12 +294,14 @@ To fix this, we will have to add a new **Controller** to my source code with the
 
 ## Working with Google Analytics and Hotjar
 
-BOS StarterCode comes integrated with Google Analytics and Hotjar already, making it extremely simple for engineers to start analysing application/ users behavior. All that you will have to do is include your app Keys in the appsettings._{environment}_.json file. This allows you to have unique keys for each environment. Look for the following nodes in the appsettings file.
+BOS StarterCode comes integrated with Google Analytics and Hotjar already, making it extremely simple for engineers to start analysing application/ users behavior. All that you will have to do is include the following code snippet in the appsettings._{environment}_.json file. This allows you to have unique keys for each environment. Look for the following nodes in the appsettings file.
 
 ```json
- "Hotjar": "",
- "GoogleAnalytics": ""
+ "Hotjar": "<!-- Hotjar Tracking Code -->\r\n<script>\r\n    (function(h,o,t,j,a,r){\r\n        h.hj=h.hj||function(){(h.hj.q=h.hj.q||[]).push(arguments)};\r\n        h._hjSettings={hjid:XXXXXX,hjsv:6};\r\n        a=o.getElementsByTagName('head')[0];\r\n        r=o.createElement('script');r.async=1;\r\n        r.src=t+h._hjSettings.hjid+j+h._hjSettings.hjsv;\r\n        a.appendChild(r);\r\n    })(window,document,'https://static.hotjar.com/c/hotjar-','.js?sv=');\r\n</script>",
+ "GoogleAnalytics": "<!-- Google Analytics Code -->\r\n<script type='text/javascript' async src='https://www.googletagmanager.com/gtag/js?id=XXXXXX'></script>\r\n    <script type='text/javascript'>\r\n        var rightOverlay = null;\r\n        window.dataLayer = window.dataLayer || [];\r\n        function gtag() { dataLayer.push(arguments); }\r\n        gtag('js', new Date());\r\n        var key ='UA-177281604-1';\r\n        gtag('config', key);\r\n    </script>"
 ```
+
+Note: Be sure to replace _XXXXXX_ with the appropriate keys.
 
 To know more on how you can create and access your app Keys follow these links along
 
