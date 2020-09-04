@@ -12,8 +12,7 @@ If you are new to the world of .NET Core, start by learning the basics from [Mic
 
 ### PREREQUISITES
 
-The StarterCode is a .NET Core application that uses the MVC pattern.  Before you start coding be sure to have the following appropriate tools installed 
-
+The StarterCode is a .NET Core application that uses the MVC pattern.  Before you start coding be sure to have the following appropriate tools installed
 
 #### Development
 
@@ -22,13 +21,11 @@ The StarterCode is a .NET Core application that uses the MVC pattern.  Before yo
   - [Visual Studio](https://visualstudio.microsoft.com/downloads/)_(doesn't matter the edition)_
 - SDK: [.NET Core 3.1](https://dotnet.microsoft.com/download/dotnet-core/3.1)(_at a minimum_)
 
-
 #### Database
 
 - If you’ve chosen PostgreSQL in the BOS Console while setting up your application then, we’d recommend you [download it](https://www.postgresql.org/download/), and [pgAdmin](https://www.pgadmin.org/) as the development platform
 - If you’ve chosen MySQL, then download the software and [MySQL Workbench](https://dev.mysql.com/downloads/workbench/) as the development tool
 - Optional -  [HeidiSQL](https://dev.mysql.com/downloads/workbench/) works with both PostgreSQL and MySQL
-
 
 ### WORKING WITH GITHUB
 
@@ -37,7 +34,6 @@ Based on your selection in the BOS Console, BOS will either create the repo for 
 If you already know how to work with GitHub, you can skip this section.
 
 To work with Git, you can either choose to write your commands on the command prompt (Windows), Terminal (Mac), or Gitbash. You can download GitBash from [here](https://git-scm.com/downloads).
-
 
 #### Cloning your StaterCode
 
@@ -63,7 +59,6 @@ Note: If you’ve not already logged in, it might ask you to enter your GitHub c
 
 After cloning the source code to your local computer, you’ll notice that the default branch is set to `master`. The latest version of the source code is already cloned, but to be absolutely sure, we could do this explicitly. _This step is optional._
 
-
 The link will take you to GitHub, where when you click on the green Code button, you get your repo URL. Copy this to Clone later.
 
 - To pull the latest, do the following
@@ -73,7 +68,6 @@ The link will take you to GitHub, where when you click on the green Code button,
 ```bash
  git pull
  ```
-
 
 #### Creating feature branch
 
@@ -90,7 +84,6 @@ Execute the following commands
 git checkout develop
 git checkout CustomCode
  ```
-
 
 #### Pushing/ Committing your code
 
@@ -116,7 +109,6 @@ git push --set-upstream original _{YourFeatureBranchName}_
 git push --set-upstream origin CustomCode
  ```
 
-
 #### Merging your code to the `develop` branch
 
 -------------------------------
@@ -138,7 +130,6 @@ git push
 
 To test if your code has been deployed successfully, visit your application hosted on the development environment.
 
-
 ## Leveraging BOS
 
 BOS StarterCode is already wired with a few of the foundational BOS APIs. Together with this, if you’ve enabled the CI/ CD in the BOS Console, then with every merge to your ‘develop’ (or equivalent) branch the code is deployed to the development server.
@@ -158,7 +149,6 @@ A few of the features and functions that the StarterCode already does for you ar
 
 To use BOS APIs you’d have to provide the **ClientID and ClientSecret** keys. You can access these in your BOS Console’s Application Dashboard
 
-
 ### Prewired BOS APIs
 
 The following are the list of BOS foundational APIs that are already integrated into the StarterCode
@@ -177,7 +167,6 @@ In the source code you’ll find these APIs being used across different controll
 - Information Architecture - AuthController.cs, PermissionsController.cs
 - Email - UsersController.cs, AuthController.cs
 
-
 ### Configuring Application IA
 
 The Information Architecture in BOS is one of the solid solutions that BOS provides. Information Architecture can be configured in one of two ways.
@@ -189,7 +178,6 @@ The Information Architecture in BOS is one of the solid solutions that BOS provi
     - Navigate to **Roles** from the left navigation pane and select the **Manage Permissions** operation
 
 BOS readily provides IA for the Super Admin and User roles. However to configure IA for your custom modules (features) in your application, you’ll have to first set this up in the BOS Console. You can create as many Modules (features) and their Operations (actions) in the BOS Console. Speaking MVC language a Module equates to a **Controller** and Operation equates to **Action**.  To do this, navigate to the **Modules and Operations** section under **Application Management**.
-
 
 ## Setting-up Custom Database
 
@@ -211,9 +199,7 @@ Follow the following steps to set up and use the database locally
 
 To get information on how you can use Entity Framework Migration in an MVC application, go through the [documentation](https://docs.microsoft.com/en-us/aspnet/core/data/ef-rp/intro?tabs=visual-studio&view=aspnetcore-3.1)
 
-
 ## Adding Custom Code
-
 
 One of the few misconceptions about BOS is that  when you add the Module and its Operations in the BOS Console, it creates the respective controllers in the Starter Code. Well, the BOS team definitely has this in the roadmap, but for right now, the onus is you to manually add them.
 
@@ -306,10 +292,23 @@ To fix this, we will have to add a new **Controller** to my source code with the
 
 ```
 
+## Working with Google Analytics and Hotjar
+
+BOS StarterCode comes integrated with Google Analytics and Hotjar already, making it extremely simple for engineers to start analysing application/ users behavior. All that you will have to do is include your app Keys in the appsettings._{environment}_.json file. This allows you to have unique keys for each environment. Look for the following nodes in the appsettings file.
+
+```json
+ "Hotjar": "",
+ "GoogleAnalytics": ""
+```
+
+To know more on how you can create and access your app Keys follow these links along
+
+- [Google Analytics]("https://analytics.google.com/analytics/web/provision/#/provision/create")
+- [Hotjar](https://www.hotjar.com/)
+
 ## Check-ins and Deployment
 
 If you’ve enabled CI/ CD in BOS Console while setting up your application, then everytime there is a code check-in or merge on the selected branch (default is set to `develop`) the code is deployed to the development branch. You will be notified about this via email and also you can look at the build logs on your **Application Dashboard** in BOS Console
-
 
 ## Documentation
 
